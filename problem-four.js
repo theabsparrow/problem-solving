@@ -9,8 +9,24 @@ const cars = [
 ];
 
 function sortCarsByYear(carArray) {
-  return carArray.sort((a, b) => a.year - b.year);
+  const ascendingCar = [];
+
+  for (let i = 0; i < carArray.length; i++) {
+    const carData = carArray[i];
+    let inserted = false;
+    for (let i = 0; i < ascendingCar.length; i++) {
+      if (carData.year < ascendingCar[i].year) {
+        ascendingCar.splice(i, 0, carData);
+        inserted = true;
+        break;
+      }
+    }
+    if (!inserted) {
+      ascendingCar.push(carData);
+    }
+  }
+  return ascendingCar;
 }
 
 const sortedCars = sortCarsByYear(cars);
-console.log("Sorted Cars by Year (Ascending):", sortedCars);
+console.log(sortedCars);

@@ -8,16 +8,21 @@ const people = [
 ];
 
 function updatePersonAge(peopleArray, targetName, newAge) {
-  const person = peopleArray.find((p) => p.name === targetName);
-
-  if (person) {
-    person.age = newAge;
-    console.log(`${targetName}'s age updated to ${newAge}.`);
-  } else {
-    console.log(`Person named ${targetName} not found.`);
+  const updatedData = {};
+  for (let i = 0; i < peopleArray.length; i++) {
+    const peopleData = peopleArray[i];
+    const peopleName = peopleData.name;
+    if (peopleName === targetName) {
+      peopleData.age = newAge;
+      updatedData.name = peopleData.name;
+      updatedData.age = newAge;
+      break;
+    } else {
+      updatedData.name = "name not found";
+    }
   }
-
-  console.log("Updated People Array:", peopleArray);
+  return updatedData;
 }
 
-updatePersonAge(people, "Bob", 35);
+const result = updatePersonAge(people, "Bhhob", 35);
+console.log(result);

@@ -10,9 +10,15 @@ const people = [
 ];
 
 function getMaleNames(peopleArray) {
-  return peopleArray
-    .filter((person) => person.gender !== "female")
-    .map((person) => person.name);
+  const femaleGender = [];
+  for (let i = 0; i < peopleArray.length; i++) {
+    const singleValue = peopleArray[i];
+    const gender = singleValue.gender;
+    if (gender === "female") {
+      femaleGender.push(gender);
+    }
+  }
+  return femaleGender;
 }
 
 const result = getMaleNames(people);

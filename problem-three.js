@@ -20,4 +20,4 @@ function composedFunction(num) {
 const input = 3;
 const result = composedFunction(input);
 
-console.log(`Result of composedFunction(${input}) is:`, result);
+console.log(result);

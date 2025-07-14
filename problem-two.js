@@ -9,8 +9,13 @@ const books = [
 ];
 
 function getBookTitles(bookArray) {
-  return bookArray.map((book) => book.title);
+  const bookTitle = [];
+  for (let i = 0; i < bookArray.length; i++) {
+    const newBook = bookArray[i];
+    bookTitle.push(newBook.title);
+  }
+  return bookTitle;
 }
 
 const titles = getBookTitles(books);
-console.log("Book Titles:", titles);
+console.log(titles);
